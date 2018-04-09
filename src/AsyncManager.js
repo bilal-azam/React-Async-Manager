@@ -1,44 +1,22 @@
-// src/AsyncManager.js
-import { useState, useCallback } from 'react';
+import React from 'react';
 
-class AsyncManager {
-    constructor() {
-        this.state = {};
-        this.setState = () => {};
+class AsyncManager extends React.Component {
+    // Enhanced error handling
+    state = { hasError: false };
+
+    componentDidCatch(error, info) {
+        this.setState({ hasError: true });
+        // Log error to an error reporting service
+        logErrorToService(error, info);
     }
 
-    setStateCallback(setState) {
-        this.setState = setState;
-    }
-
-    async runAsync(action, key) {
-        this.setState(prevState => ({
-            ...prevState,
-            [key]: { loading: true, error: null, data: null }
-        }));
-        
-        try {
-            const data = await action();
-            this.setState(prevState => ({
-                ...prevState,
-                [key]: { loading: false, data }
-            }));
-        } catch (error) {
-            this.setState(prevState => ({
-                ...prevState,
-                [key]: { loading: false, error }
-            }));
+    render() {
+        if (this.state.hasError) {
+            // You can render any custom fallback UI
+            return <h1>Something went wrong.</h1>;
         }
-    }
-
-    useAsyncState(key, initialState) {
-        const [state, setState] = useState({
-            [key]: initialState
-        });
-        this.setStateCallback(setState);
-
-        return [state[key], (action) => this.runAsync(action, key)];
+        return this.props.children; 
     }
 }
 
-export default new AsyncManager();
+export default AsyncManager;
