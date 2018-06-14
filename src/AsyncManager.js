@@ -1,21 +1,15 @@
 import React from 'react';
 
 class AsyncManager extends React.Component {
-    // Enhanced error handling
-    state = { hasError: false };
+    state = { isLoading: true, data: null };
 
-    componentDidCatch(error, info) {
-        this.setState({ hasError: true });
-        // Log error to an error reporting service
-        logErrorToService(error, info);
+    componentDidMount() {
+        fetchData().then(data => this.setState({ data, isLoading: false }));
     }
 
     render() {
-        if (this.state.hasError) {
-            // You can render any custom fallback UI
-            return <h1>Something went wrong.</h1>;
-        }
-        return this.props.children; 
+        const { isLoading, data } = this.state;
+        return isLoading ? <div>Loading...</div> : <div>{data}</div>;
     }
 }
 
