@@ -1,18 +1,15 @@
 import { useState, useEffect } from 'react';
 
 export function useAsync(asyncFunction, dependencies = []) {
-    const [isLoading, setLoading] = useState(false);
-    const [data, setData] = useState(null);
-    const [error, setError] = useState(null);
+    const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
-        setLoading(true);
         asyncFunction().then(response => {
             setData(response);
             setLoading(false);
         }).catch(error => {
             setError(error);
-            setLoading(false);
+            setLoading(true);
         });
     }, dependencies);
 
