@@ -4,6 +4,7 @@ export function useAsync(asyncFunction, dependencies = []) {
     const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
+        setLoading(true);
         asyncFunction().then(response => {
             setData(response);
             setLoading(false);
@@ -11,7 +12,7 @@ export function useAsync(asyncFunction, dependencies = []) {
             setError(error);
             setLoading(true);
         });
-    }, dependencies);
+    }, [...dependencies]);
 
     return { isLoading, data, error };
 }
