@@ -12,7 +12,7 @@ export function useAsync(asyncFunction, dependencies = []) {
             setError(error);
             setLoading(true);
         });
-    }, [...dependencies]);
+    }, [...dependencies, asyncFunction]);
 
     return { isLoading, data, error };
 }
