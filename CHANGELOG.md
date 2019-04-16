@@ -1,10 +1,5 @@
 # Changelog
 
-## [Unreleased]
-
+## [Beta Release] - 2019-04-17
 ### Added
-- New feature X
-- Improved performance for async operations
-
-### Fixed
-- Bug Y
+- Beta release of all new custom hooks for community testing.
