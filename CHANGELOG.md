@@ -1,5 +1,5 @@
 # Changelog
 
-## [Beta Release] - 2019-04-17
+## [1.0.0] - 2019-05-14
 ### Added
-- Beta release of all new custom hooks for community testing.
+- Official release of the hooks package.
