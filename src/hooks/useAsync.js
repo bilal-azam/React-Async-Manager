@@ -1,1 +1,1 @@
-// Bug fixes based on beta testing feedback in existing useAsync hook file content modified here
+// Quick fixes and patch release updates in response to initial feedback.
