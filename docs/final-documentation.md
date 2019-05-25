@@ -1,3 +1,1 @@
-# Final Documentation for Hooks
-
-Complete and detailed documentation ready for the official release, covering all aspects of the hooks and their usage.
+// Documentation updates to clarify common questions and expand on less clear topics based on user feedback.
