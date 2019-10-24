@@ -1,1 +1,1 @@
-// Refactored useAsync hook with optimal Suspense handling and performance enhancements.
+// Updates and bug fixes to the useAsync hook based on feedback received on Suspense integration.
