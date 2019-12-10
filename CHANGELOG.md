@@ -1,5 +1,7 @@
 # Changelog
 
-## [1.0.0] - 2019-05-14
+## [Minor Release] - 2019-12-10
 ### Added
-- Official release of the hooks package.
+- Enhanced Suspense support in custom hooks.
+### Fixed
+- Minor bug fixes based on developer feedback.
