@@ -1,0 +1,1 @@
+export interface OptimizedData { id: number; name: string; details: string; }
