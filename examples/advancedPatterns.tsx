@@ -1,0 +1,1 @@
+import React from 'react'; import { useAsync } from '../hooks/useAsync'; function ComponentWithAdvancedPatterns() { const { data, error, isLoading } = useAsync(fetchData); return <div>{ isLoading ? 'Loading...' : error ? error.message : data }</div>; } export default ComponentWithAdvancedPatterns;
