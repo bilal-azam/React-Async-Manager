@@ -1,0 +1,1 @@
+export namespace DataModel { export interface Data { id: number; title: string; } export class DataManager { fetchData() { /* fetch logic */ } } }
