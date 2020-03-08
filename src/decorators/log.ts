@@ -1,0 +1,1 @@
+export function log(target: any, propertyKey: string, descriptor: PropertyDescriptor) { const originalMethod = descriptor.value; descriptor.value = function (...args: any[]) { console.log('Arguments: ', args); const result = originalMethod.apply(this, args); console.log('Result: ', result); return result; }; }
