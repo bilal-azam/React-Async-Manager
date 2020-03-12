@@ -1,0 +1,2 @@
+# Collaborative Development on TypeScript Enhancements
+This document details the process and guidelines for contributing to the TypeScript enhancement feature branch, aiming to foster collaboration and high-quality contributions.
