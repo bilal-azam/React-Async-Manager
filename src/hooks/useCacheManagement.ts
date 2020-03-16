@@ -1,0 +1,1 @@
+import { useState } from 'react'; export function useCacheManagement<T>(initialState: T): [T, (newState: T) => void] { const [state, setState] = useState(initialState); // Implement cache expiration logic here return [state, setState]; }
