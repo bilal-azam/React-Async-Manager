@@ -1,0 +1,1 @@
+import { useEffect, useState } from 'react'; export function useAdaptiveCaching(key, fetchFunction, options) { const [data, setData] = useState(null); useEffect(() => { const fetchData = async () => { const data = await fetchFunction(); setData(data); }; fetchData(); }, [key]); return data; }
