@@ -1,0 +1,1 @@
+export function secureCache(cache) { Object.freeze(cache); return cache; }
