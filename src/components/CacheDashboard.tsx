@@ -1,0 +1,1 @@
+import React from 'react'; const CacheDashboard = ({ cacheData }) => (<div>Cache Statistics: {cacheData.map(stat => <div key={stat.id}>{stat.name}: {stat.value}</div>)} </div>); export default CacheDashboard;
