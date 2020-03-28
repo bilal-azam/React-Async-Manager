@@ -1,0 +1,1 @@
+export class DistributedCachingModule { /* Implementation details for a caching module that supports distributed systems environments */ }
