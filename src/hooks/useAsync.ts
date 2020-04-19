@@ -1,1 +1,1 @@
-// Auto-caching logic that caches responses based on how frequently they are requested.
+// Implementation of an optimized cache storage mechanism to efficiently handle large datasets without significant performance degradation.
