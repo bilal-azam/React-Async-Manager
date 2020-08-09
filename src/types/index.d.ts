@@ -1,0 +1,1 @@
+export interface AsyncState<T> { data: T | null; error: Error | null; isLoading: boolean; }
