@@ -1,0 +1,1 @@
+// JavaScript code to benchmark caching performance and compare with previous implementations.
