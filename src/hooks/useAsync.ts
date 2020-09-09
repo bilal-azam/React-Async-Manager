@@ -1,1 +1,1 @@
-// Implementing advanced caching strategies that use less memory and are more efficient.
+// Adding persistence capabilities to caching, allowing data to be stored across sessions using local storage or similar.
