@@ -1,2 +1,2 @@
-## TypeScript Support
-This library fully supports TypeScript, providing strong typing for asynchronous operations via custom hooks. See below for usage examples.
+## Caching
+Caching is supported to reduce the number of requests and speed up rendering by reusing previously fetched data. Configuration options allow for fine control over cache behavior.
