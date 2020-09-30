@@ -1,7 +1,7 @@
 # Changelog
-
-## [Minor Release] - 2019-12-10
+## [Upcoming Release] - 2020-10-15
 ### Added
-- Enhanced Suspense support in custom hooks.
+- TypeScript support for all hooks
+- Caching mechanism for asynchronous data fetching
 ### Fixed
-- Minor bug fixes based on developer feedback.
+- Various bug fixes and performance improvements
