@@ -1,0 +1,1 @@
+// Comprehensive tests for TypeScript integration and caching
