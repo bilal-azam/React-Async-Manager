@@ -1,7 +1,3 @@
 # Changelog
-## [Upcoming Release] - 2020-10-15
-### Added
-- TypeScript support for all hooks
-- Caching mechanism for asynchronous data fetching
-### Fixed
-- Various bug fixes and performance improvements
+## [Release] - 2020-10-10
+This release introduces TypeScript support and a new caching mechanism for the async hooks, providing better performance and developer experience.
