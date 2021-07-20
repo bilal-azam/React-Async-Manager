@@ -1,5 +1,5 @@
-// Optimize the intervals between retries
-export function setRetryIntervals(interval) {
-    console.log('Setting retry intervals to', interval);
-    // Additional logic to adjust intervals
+// Fine-tune parameters for throttling
+export function optimizeThrottling(settings) {
+    console.log('Optimizing throttling with settings:', settings);
+    // Logic to apply optimization settings
 }
