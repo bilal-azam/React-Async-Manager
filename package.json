@@ -1,0 +1,30 @@
+{
+    "name": "react-async-manager",
+    "version": "1.0.0",
+    "description": "A React package for managing asynchronous operations and state.",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "dependencies": {
+        "react": "^17.0.2"
+    },
+    "devDependencies": {
+        "jest": "^27.0.6",
+        "babel-jest": "^27.0.6",
+        "@babel/core": "^7.15.4",
+        "@babel/preset-env": "^7.15.4",
+        "@babel/preset-react": "^7.15.4"
+    },
+    "peerDependencies": {
+        "react": "^17.0.2"
+    },
+    "keywords": [
+        "react",
+        "state",
+        "async",
+        "management"
+    ],
+    "author": "Your Name",
+    "license": "MIT"
+}
