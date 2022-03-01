@@ -1,5 +1,5 @@
 {
-    "name": "react-async-manager",
+    "name": "react-asynchronous-manager",
     "version": "1.0.0",
     "description": "A React package for managing asynchronous operations and state.",
     "main": "index.js",
@@ -25,6 +25,6 @@
         "async",
         "management"
     ],
-    "author": "Bilal Azam",
+    "author": "Bilal Azam <bilal.azam1@outlook.com>",
     "license": "MIT"
 }
