@@ -1,14 +1,4 @@
-# react-async-manager
-
-A React package for managing asynchronous operations and state in a simple and effective way.
-
-## Installation
-
-```
-npm install react-async-manager
-```
-
-## Usage
+## Usage with TypeScript
 
 1. Import the package:
 
@@ -16,19 +6,24 @@ npm install react-async-manager
     import AsyncManager from 'react-async-manager';
     ```
 
-2. Use it in your component:
+2. Use it in your TypeScript component:
 
     ```
     import React from 'react';
     import AsyncManager from 'react-async-manager';
 
-    const fetchData = async () => {
+    type Data = {
+        id: number;
+        name: string;
+    };
+
+    const fetchData = async (): Promise<Data[]> => {
         const response = await fetch('https://api.example.com/data');
         return response.json();
     };
 
-    const MyComponent = () => {
-        const [state, fetchData] = AsyncManager.useAsyncState('data', { loading: false, data: null, error: null });
+    const MyComponent: React.FC = () => {
+        const [state, fetchData] = AsyncManager.useAsyncState<Data[]>('data', { loading: false, data: null, error: null });
 
         React.useEffect(() => {
             fetchData(fetchData);
@@ -47,7 +42,3 @@ npm install react-async-manager
 
     export default MyComponent;
     ```
-
-## License
-
-MIT License. See the [LICENSE](LICENSE) file for details.
