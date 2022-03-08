@@ -1,44 +1,41 @@
-## Usage with TypeScript
+## Advanced Usage
 
-1. Import the package:
+### Handling Multiple Async Operations
 
-    ```
-    import AsyncManager from 'react-async-manager';
-    ```
+You can handle multiple asynchronous operations by using different keys for each operation:
 
-2. Use it in your TypeScript component:
+```
+import React from 'react';
+import AsyncManager from 'react-async-manager';
 
-    ```
-    import React from 'react';
-    import AsyncManager from 'react-async-manager';
+const fetchData1 = async () => { ... };
+const fetchData2 = async () => { ... };
 
-    type Data = {
-        id: number;
-        name: string;
-    };
+const MyComponent: React.FC = () => {
+    const [state1, fetch1] = AsyncManager.useAsyncState('data1', { loading: false, data: null, error: null });
+    const [state2, fetch2] = AsyncManager.useAsyncState('data2', { loading: false, data: null, error: null });
 
-    const fetchData = async (): Promise<Data[]> => {
-        const response = await fetch('https://api.example.com/data');
-        return response.json();
-    };
+    React.useEffect(() => {
+        fetch1(fetchData1);
+        fetch2(fetchData2);
+    }, [fetch1, fetch2]);
 
-    const MyComponent: React.FC = () => {
-        const [state, fetchData] = AsyncManager.useAsyncState<Data[]>('data', { loading: false, data: null, error: null });
+    return (
+        <div>
+            <h1>Data 1:</h1>
+            <pre>{JSON.stringify(state1.data, null, 2)}</pre>
+            <h1>Data 2:</h1>
+            <pre>{JSON.stringify(state2.data, null, 2)}</pre>
+        </div>
+    );
+};
 
-        React.useEffect(() => {
-            fetchData(fetchData);
-        }, [fetchData]);
+export default MyComponent;
+```
 
-        if (state.loading) return <p>Loading...</p>;
-        if (state.error) return <p>Error: {state.error.message}</p>;
+### API
 
-        return (
-            <div>
-                <h1>Data:</h1>
-                <pre>{JSON.stringify(state.data, null, 2)}</pre>
-            </div>
-        );
-    };
-
-    export default MyComponent;
-    ```
+- **AsyncManager.useAsyncState(key: string, initialState: State<T>): [State<T>, (action: () => Promise<T>) => void]**
+  - key: Unique key for the state.
+  - initialState: Initial state for the async operation.
+  - Returns: Current state and a function to trigger the async action.
