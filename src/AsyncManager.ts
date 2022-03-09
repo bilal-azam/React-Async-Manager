@@ -1,3 +1,4 @@
+// src/AsyncManager.ts
 import { useState, useCallback } from 'react';
 
 type State<T> = {
@@ -9,7 +10,7 @@ type State<T> = {
 class AsyncManager {
     private setState: React.Dispatch<React.SetStateAction<any>> = () => {};
 
-    private async runAsync<T>(action: () => Promise<T>, key: string) {
+    private async runAsync<T>(action: () => Promise<T>, key: string, onError?: (error: Error) => void) {
         this.setState(prevState => ({
             ...prevState,
             [key]: { loading: true, error: null, data: null }
@@ -22,6 +23,7 @@ class AsyncManager {
                 [key]: { loading: false, data }
             }));
         } catch (error) {
+            if (onError) onError(error);
             this.setState(prevState => ({
                 ...prevState,
                 [key]: { loading: false, error }
@@ -41,8 +43,8 @@ class AsyncManager {
 
         return [
             state[key] as State<T>,
-            (action: () => Promise<T>) => this.runAsync(action, key)
-        ] as [State<T>, (action: () => Promise<T>) => void];
+            (action: () => Promise<T>, onError?: (error: Error) => void) => this.runAsync(action, key, onError)
+        ] as [State<T>, (action: () => Promise<T>, onError?: (error: Error) => void) => void];
     }
 }
 
