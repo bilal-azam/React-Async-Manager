@@ -43,7 +43,7 @@ class AsyncManager {
 
         return [
             state[key] as State<T>,
-            (action: () => Promise<T>, onError?: (error: Error) => void) => this.runAsync(action, key, onError)
+            useCallback((action: () => Promise<T>, onError?: (error: Error) => void) => this.runAsync(action, key, onError), [key])
         ] as [State<T>, (action: () => Promise<T>, onError?: (error: Error) => void) => void];
     }
 }
