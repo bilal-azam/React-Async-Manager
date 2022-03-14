@@ -1,24 +1,42 @@
-## Advanced Error Handling
+## Usage with Context API
 
-You can customize error handling by providing an onError callback:
+### Setting Up Context
+
+Wrap your application with the `AsyncManagerProvider`:
 
 ```
 import React from 'react';
-import AsyncManager from 'react-async-manager';
+import ReactDOM from 'react-dom';
+import App from './App';
+import { AsyncManagerProvider } from 'react-async-manager';
+
+ReactDOM.render(
+    <AsyncManagerProvider>
+        <App />
+    </AsyncManagerProvider>,
+    document.getElementById('root')
+);
+```
+
+### Using AsyncManager with Context
+
+In your components:
+
+```
+import React from 'react';
+import { useAsyncManager } from 'react-async-manager';
 
 const fetchData = async () => {
-    throw new Error('Custom error');
-};
-
-const handleError = (error: Error) => {
-    console.error('Error occurred:', error.message);
+    const response = await fetch('https://api.example.com/data');
+    return response.json();
 };
 
 const MyComponent: React.FC = () => {
+    const AsyncManager = useAsyncManager();
     const [state, fetchData] = AsyncManager.useAsyncState('data', { loading: false, data: null, error: null });
 
     React.useEffect(() => {
-        fetchData(fetchData, handleError);
+        fetchData(fetchData);
     }, [fetchData]);
 
     if (state.loading) return <p>Loading...</p>;
