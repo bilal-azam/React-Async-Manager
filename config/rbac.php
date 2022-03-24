@@ -3,6 +3,6 @@
 return [
     'cache' => [
         'enabled' => true,
-        'duration' => 60, // Cache duration in minutes
+        'duration' => 60,
     ],
 ];
