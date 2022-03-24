@@ -1,5 +1,5 @@
 {
-    "name": "bilal/laravel-advanced-rbac",
+    "name": "bilalazm/laravel-advanced-rbac",
     "description": "A Laravel package providing automated Role-Based Access Control (RBAC) with advanced permissions management.",
     "type": "library",
     "license": "MIT",
