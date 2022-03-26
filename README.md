@@ -1,15 +1,11 @@
 # Updated Documentation
 
-## FAQs
+## New Features
 
-### How do I reset the state?
+### Feature X
 
-You can reset the state by calling the `setState` method directly if you have access to the `AsyncManager` instance.
+Description of new feature X and how to use it.
 
-### Can I use this package with class components?
+### Performance Improvements
 
-Currently, this package is designed for functional components and React hooks.
-
-### How do I contribute?
-
-Feel free to open issues or submit pull requests on GitHub.
+Details about the performance improvements made in the latest version.
