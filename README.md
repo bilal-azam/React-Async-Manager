@@ -31,11 +31,11 @@ AsyncManager is a powerful React library for managing asynchronous operations an
 Install AsyncManager using npm or yarn:
 
 ```
-npm install react-async-manager
+npm install react-asynchronous-manager
 ```
 or
 ```
-yarn add react-async-manager
+yarn add react-asynchronous-manager
 ```
 
 ## Usage
@@ -44,7 +44,7 @@ Here’s a basic example of how to use AsyncManager in a React component:
 
 ```
 import React from 'react';
-import { useAsyncManager } from 'react-async-manager';
+import { useAsyncManager } from 'react-asynchronous-manager';
 
 const fetchData = async () => {
     const response = await fetch('https://api.example.com/data');
@@ -79,7 +79,7 @@ AsyncManager allows you to manage multiple async states within a single componen
 
 ```
 import React from 'react';
-import { useAsyncManager } from 'react-async-manager';
+import { useAsyncManager } from 'react-asynchronous-manager';
 
 const fetchUserData = async () => {
     const response = await fetch('https://api.example.com/user');
@@ -122,7 +122,7 @@ You can create custom hooks that leverage AsyncManager for reusable logic:
 
 ```
 import React from 'react';
-import { useAsyncManager } from 'react-async-manager';
+import { useAsyncManager } from 'react-asynchronous-manager';
 
 const useCustomData = (url: string) => {
     const AsyncManager = useAsyncManager();
