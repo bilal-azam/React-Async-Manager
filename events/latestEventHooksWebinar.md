@@ -1,0 +1,2 @@
+# Webinar on Latest Event Hooks Features
+Plan and host a webinar to educate developers on the latest event hook features and best practices. Topics to cover include delayed execution, event prioritization, and interactive testing.
