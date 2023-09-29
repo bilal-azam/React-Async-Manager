@@ -1,0 +1,2 @@
+# Advanced Event Handling Workshop
+Organize a workshop to demonstrate advanced techniques in event handling using the React Async Manager. Topics include conditional triggers, asynchronous handling, and session management.
