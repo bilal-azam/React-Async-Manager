@@ -1,4 +1,4 @@
-// src/AsyncManager.ts
+src/AsyncManager.ts
 import { useState, useCallback } from 'react';
 
 type State<T> = {
