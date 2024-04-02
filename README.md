@@ -1,23 +1,25 @@
-# Enhanced Documentation
+## Custom Hooks
 
-## New Features
+### Creating Custom Hooks with AsyncManager
 
-### Feature X
-
-**Feature X** provides a way to ... [Provide a detailed description of Feature X].
-
-#### Usage
+You can create custom hooks that leverage AsyncManager:
 
 ```
 import { useAsyncManager } from 'react-async-manager';
 
-const MyComponent: React.FC = () => {
+const useCustomData = (url: string) => {
     const AsyncManager = useAsyncManager();
-    const [state, fetchData] = AsyncManager.useAsyncState('data', { loading: false, data: null, error: null });
+    const [state, fetchData] = AsyncManager.useAsyncState('customData', { loading: false, data: null, error: null });
 
     React.useEffect(() => {
-        fetchData(fetchData);
-    }, [fetchData]);
+        fetchData(() => fetch(url).then(res => res.json()));
+    }, [url, fetchData]);
+
+    return state;
+};
+
+const MyComponent: React.FC = () => {
+    const state = useCustomData('https://api.example.com/data');
 
     if (state.loading) return <p>Loading...</p>;
     if (state.error) return <p>Error: {state.error.message}</p>;
@@ -29,12 +31,6 @@ const MyComponent: React.FC = () => {
         </div>
     );
 };
+
+export default MyComponent;
 ```
-
-### Performance Improvements
-
-**Performance Improvements** include optimizations such as ... [Describe performance improvements].
-
-#### How to Benefit
-
-By using the latest version, you’ll benefit from ... [Detail the benefits].
