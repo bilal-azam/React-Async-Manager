@@ -1,4 +1,4 @@
-src/AsyncManager.ts
+// src/AsyncManager.ts
 import { useState, useCallback } from 'react';
 
 type State<T> = {
@@ -41,9 +41,13 @@ class AsyncManager {
         });
         this.setStateCallback(setState);
 
+        const fetchData = useCallback((action: () => Promise<T>, onError?: (error: Error) => void) => {
+            this.runAsync(action, key, onError);
+        }, [key]);
+
         return [
             state[key] as State<T>,
-            useCallback((action: () => Promise<T>, onError?: (error: Error) => void) => this.runAsync(action, key, onError), [key])
+            fetchData
         ] as [State<T>, (action: () => Promise<T>, onError?: (error: Error) => void) => void];
     }
 }
