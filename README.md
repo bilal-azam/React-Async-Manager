@@ -1,36 +1,9 @@
-## Custom Hooks
+## Performance Optimization
 
-### Creating Custom Hooks with AsyncManager
+### Tips for Large Applications
 
-You can create custom hooks that leverage AsyncManager:
+1. **Lazy Loading**: Load async operations only when needed to reduce initial load time.
+2. **Memoization**: Use memoized callbacks for async actions to avoid unnecessary re-renders.
+3. **Error Boundaries**: Implement error boundaries to catch and handle errors gracefully in the component tree.
 
-```
-import { useAsyncManager } from 'react-async-manager';
-
-const useCustomData = (url: string) => {
-    const AsyncManager = useAsyncManager();
-    const [state, fetchData] = AsyncManager.useAsyncState('customData', { loading: false, data: null, error: null });
-
-    React.useEffect(() => {
-        fetchData(() => fetch(url).then(res => res.json()));
-    }, [url, fetchData]);
-
-    return state;
-};
-
-const MyComponent: React.FC = () => {
-    const state = useCustomData('https://api.example.com/data');
-
-    if (state.loading) return <p>Loading...</p>;
-    if (state.error) return <p>Error: {state.error.message}</p>;
-
-    return (
-        <div>
-            <h1>Data:</h1>
-            <pre>{JSON.stringify(state.data, null, 2)}</pre>
-        </div>
-    );
-};
-
-export default MyComponent;
-```
+By following these practices, you can ensure that your application remains performant even with a large number of async operations.
