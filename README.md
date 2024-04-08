@@ -1,9 +1,36 @@
-## Performance Optimization
+## Advanced Examples
 
-### Tips for Large Applications
+### Combining Multiple Async States
 
-1. **Lazy Loading**: Load async operations only when needed to reduce initial load time.
-2. **Memoization**: Use memoized callbacks for async actions to avoid unnecessary re-renders.
-3. **Error Boundaries**: Implement error boundaries to catch and handle errors gracefully in the component tree.
+```
+import React from 'react';
+import { useAsyncManager } from 'react-async-manager';
 
-By following these practices, you can ensure that your application remains performant even with a large number of async operations.
+const fetchUserData = async () => { ... };
+const fetchPostsData = async () => { ... };
+
+const CombinedComponent: React.FC = () => {
+    const AsyncManager = useAsyncManager();
+    const [userState, fetchUser] = AsyncManager.useAsyncState('user', { loading: false, data: null, error: null });
+    const [postsState, fetchPosts] = AsyncManager.useAsyncState('posts', { loading: false, data: null, error: null });
+
+    React.useEffect(() => {
+        fetchUser(fetchUserData);
+        fetchPosts(fetchPostsData);
+    }, [fetchUser, fetchPosts]);
+
+    if (userState.loading || postsState.loading) return <p>Loading...</p>;
+    if (userState.error || postsState.error) return <p>Error: {userState.error?.message || postsState.error?.message}</p>;
+
+    return (
+        <div>
+            <h1>User Data:</h1>
+            <pre>{JSON.stringify(userState.data, null, 2)}</pre>
+            <h1>Posts Data:</h1>
+            <pre>{JSON.stringify(postsState.data, null, 2)}</pre>
+        </div>
+    );
+};
+
+export default CombinedComponent;
+```
