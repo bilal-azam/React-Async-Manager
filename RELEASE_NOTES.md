@@ -1,8 +1,15 @@
 # Release Notes
 
-## Version 1.0.0
+## Version 2.0.0
 
-- Initial release with basic async state management.
-- Added support for TypeScript.
-- Context API support for global state management.
-- Error handling and customization features.
+### Added
+- New feature X: [Description]
+- Performance improvements for large applications
+- Showcase application for demo purposes
+
+### Fixed
+- Bug fixes and improvements
+- Enhanced documentation with advanced examples
+
+### Changes
+- Refactored code for better modularity and performance
