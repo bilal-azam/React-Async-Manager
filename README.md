@@ -17,7 +17,7 @@ Publish the configuration file:
 ### Blade Directives
 Use the following directives in your Blade templates:
 
-`
+```
 @role('admin')
     <p>Admin content</p>
 @endrole
@@ -25,7 +25,7 @@ Use the following directives in your Blade templates:
 @permission('edit-posts')
     <p>Permission granted content</p>
 @endpermission
-`
+```
 
 ### Defining Roles and Permissions
 You can define roles and permissions in your application using Eloquent models. Refer to the Role and Permission models for more details.
