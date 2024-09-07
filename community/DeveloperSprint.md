@@ -1,0 +1,2 @@
+# Developer Sprint for Event Hook Innovations
+Organize a developer sprint to encourage community-driven innovations and enhancements for the event hooks system. Participants will collaborate on new features and improvements.
