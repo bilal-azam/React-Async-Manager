@@ -180,8 +180,8 @@ AsyncManager includes a CI/CD pipeline powered by GitHub Actions, which handles:
 
 The pipeline is configured in the .github/workflows/node.js.yml file.
 
-##Contributing
+## Contributing
 We welcome contributions! Please read our CONTRIBUTING.md for guidelines on how to contribute to this project.
 
-##License
+## License
 AsyncManager is licensed under the MIT License.
